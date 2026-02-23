@@ -43,11 +43,11 @@ def override_get_db(db_session):
 async def test_full_auth_flow(override_get_db):
     async with AsyncClient(app=app, base_url="http://test") as ac:
         # register
-        r = await ac.post("/auth/register", json={"email": "alice@example.com", "password": "secret123"})
+        r = await ac.post("/auth/register", json={"email": "aed@example.com", "password": "secret123"})
         assert r.status_code == 201
 
         # login
-        r = await ac.post("/auth/login", json={"email": "alice@example.com", "password": "secret123"})
+        r = await ac.post("/auth/login", json={"email": "aed@example.com", "password": "secret123"})
         assert r.status_code == 200
         body = r.json()
         assert "access_token" in body
